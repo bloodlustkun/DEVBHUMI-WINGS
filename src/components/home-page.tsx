@@ -15,6 +15,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
     { value: "10k+", label: "Happy Customers", icon: Users },
     { value: "50+", label: "Premium Routes", icon: Map },
     { value: "4.7★", label: "Customer Rating", icon: Star },
+    { value: "9311344461", label: "Social Sharing (Call)", icon: Users },
+    { value: "9311344463", label: "Hotel Suite Booking", icon: Compass },
   ];
 
   const features = [
@@ -312,7 +314,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <h2 className="text-white mb-4">Popular Destinations</h2>
             <div className="h-[2px] w-24 mx-auto bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
             <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-              Discover India's most breathtaking locations with our curated travel packages.
+              Discover India's and Uttrakhand's most breathtaking locations with our curated travel packages.
             </p>
           </motion.div>
 

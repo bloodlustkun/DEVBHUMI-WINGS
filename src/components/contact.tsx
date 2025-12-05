@@ -26,20 +26,26 @@ export function Contact() {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Call Us",
-      info: "+91 9876543210",
-      link: "tel:+919876543210",
+      title: "Social Sharing & Inquiries",
+      info: "+91 9311344461",
+      link: "tel:+919311344461",
+    },
+    {
+      icon: Phone,
+      title: "Hotel Suite Booking",
+      info: "+91 9311344463",
+      link: "tel:+919311344463",
     },
     {
       icon: Mail,
       title: "Email Us",
-      info: "info@devbhoomiwings.com",
-      link: "mailto:info@devbhoomiwings.com",
+      info: "info@devbhoomi.com",
+      link: "mailto:info@devbhoomi.com",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      info: "Rishikesh, Uttarakhand, India",
+      info: "Pithoragarh, Pahadi Region, Uttarakhand, India",
       link: "#",
     },
   ];

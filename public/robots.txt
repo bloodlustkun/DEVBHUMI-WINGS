@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /build/
+Disallow: /node_modules/
+
+Sitemap: https://devbhoomi-wings.vercel.app/sitemap.xml
+
+# Comment: Allow Google, Bing, and other major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
