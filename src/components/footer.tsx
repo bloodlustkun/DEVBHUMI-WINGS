@@ -6,9 +6,9 @@ import logo from "figma:asset/60e125f48eba70acc7c4bd712a78ebd53a2c0c09.png";
 
 export function Footer() {
   const socialLinks = [
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Instagram, label: "Instagram", href: "#" },
-    { icon: Youtube, label: "YouTube", href: "#" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/devbhoomi-wings" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/devbhoomiwings" },
+    { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/@devbhoomiwings" },
   ];
 
   return (
