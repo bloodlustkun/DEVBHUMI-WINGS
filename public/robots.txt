@@ -1,16 +1,4 @@
-﻿# Global rules
-User-agent: *
-Disallow: /admin/
-Disallow: /api/
-Disallow: /tmp/
-Disallow: /private/
-Disallow: /drafts/
+﻿User-agent: *
+Disallow:
 
-# If you ever add a staging subdirectory, block it:
-Disallow: /staging/
-
-# Hint for overly aggressive bots (Google ignores this but others honor it)
-Crawl-delay: 5
-
-# Sitemap location
 Sitemap: https://devbhoomiwings.com/sitemap.xml
