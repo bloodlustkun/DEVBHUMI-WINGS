@@ -1,3 +1,5 @@
+npm run build
+npm run preview
 # Devbhoomi Wings - Premium Travel Website
 
 A fully upgraded, modern travel website for Devbhoomi Wings Travels Pvt. Ltd., built with React, TypeScript, Tailwind CSS, and Motion (Framer Motion).
