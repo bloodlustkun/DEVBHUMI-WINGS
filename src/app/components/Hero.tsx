@@ -3,11 +3,27 @@
  */
 
 import { Button } from "./ui/button";
+import * as React from "react";
 import { motion } from "motion/react";
 import { PlaneIcon, ArrowRightIcon } from "lucide-react";
 import logo from "../../assets/60e125f48eba70acc7c4bd712a78ebd53a2c0c09.png";
 
 export function Hero() {
+  const whatsappPool = React.useMemo(
+    () => [
+      "919311344462",
+      "919311344463",
+      "919311344461",
+      "919311338083",
+      "918126315319",
+    ],
+    [],
+  );
+  const selectedWhatsApp = React.useMemo(() => {
+    const idx = Math.floor(Math.random() * whatsappPool.length);
+    return whatsappPool[idx];
+  }, [whatsappPool]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50">
       {/* Animated background elements */}
@@ -96,11 +112,19 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button 
+              asChild
               size="lg" 
               className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 gap-2"
             >
-              <PlaneIcon className="size-5" />
-              Book Your Journey
+              <a
+                href={`https://wa.me/${selectedWhatsApp}?text=${encodeURIComponent("Hi Devbhumi Wings, I’d like to book a journey.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book your journey on WhatsApp"
+              >
+                <PlaneIcon className="size-5" />
+                Book Your Journey
+              </a>
             </Button>
             <Button 
               variant="outline" 
