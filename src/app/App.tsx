@@ -2,6 +2,7 @@
  * Copyright © 2025 metasyndikate. All rights reserved.
  */
 
+import { Analytics } from "@vercel/analytics/react";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
@@ -26,6 +27,7 @@ export default function App() {
       <Footer />
       <CookieConsent />
       <Toaster position="top-center" />
+      <Analytics />
     </div>
   );
 }
