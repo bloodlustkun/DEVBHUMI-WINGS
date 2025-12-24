@@ -1,0 +1,36 @@
+{
+  "framework": {
+    "name": "Syndixk Framework",
+    "version": "1.0.0",
+    "codename": "Genesis",
+    "company": {
+      "name": "Metasyndikate Company",
+      "website": "https://metasyndikate.com",
+      "copyright": "© 2025 Metasyndikate Company"
+    },
+    "release": {
+      "date": "2025-12-24",
+      "type": "stable",
+      "channel": "production"
+    }
+  },
+  "architecture": {
+    "core": "React 19",
+    "bundler": "Vite/Rolldown",
+    "language": "TypeScript 5.9",
+    "styling": "CSS/Tailwind"
+  },
+  "capabilities": {
+    "ssr": false,
+    "ssg": false,
+    "spa": true,
+    "pwa": true,
+    "routing": true,
+    "stateManagement": true
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metasyndikate/syndixk-framework"
+  }
+}
