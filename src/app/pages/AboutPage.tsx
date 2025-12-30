@@ -1,0 +1,51 @@
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { Shield, Award, Users, MapPin } from 'lucide-react';
+
+export function AboutPage() {
+  return (
+    <div className="min-h-screen bg-[#fafaf9]">
+      <Header />
+      <main className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-[#0f172a] mb-6">About Devbhoomi Wings</h1>
+          <div className="space-y-6 text-[#64748b]">
+            <p className="text-lg">
+              Devbhoomi Wings Pvt Ltd is a government-authorised travel company, established in 2018 
+              with a mission to provide comfortable and trustworthy travel experiences across India.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 my-8">
+              <div className="p-6 bg-white rounded-lg border-2 border-[#e2e8f0]">
+                <Shield className="w-8 h-8 text-[#14b8a6] mb-3" />
+                <h3 className="font-semibold text-[#0f172a] mb-2">Authorised & Registered</h3>
+                <p>Government of India certified travel operator</p>
+              </div>
+              <div className="p-6 bg-white rounded-lg border-2 border-[#e2e8f0]">
+                <Award className="w-8 h-8 text-[#f97316] mb-3" />
+                <h3 className="font-semibold text-[#0f172a] mb-2">Since 2018</h3>
+                <p>Serving travelers with excellence</p>
+              </div>
+              <div className="p-6 bg-white rounded-lg border-2 border-[#e2e8f0]">
+                <Users className="w-8 h-8 text-[#14b8a6] mb-3" />
+                <h3 className="font-semibold text-[#0f172a] mb-2">10,000+ Happy Travelers</h3>
+                <p>Join our growing family</p>
+              </div>
+              <div className="p-6 bg-white rounded-lg border-2 border-[#e2e8f0]">
+                <MapPin className="w-8 h-8 text-[#f97316] mb-3" />
+                <h3 className="font-semibold text-[#0f172a] mb-2">All India Coverage</h3>
+                <p>From mountains to beaches</p>
+              </div>
+            </div>
+            <p>
+              <strong>Office Address:</strong> Shop no. 208, Ganga complex<br />
+              <strong>Contact:</strong> 9690707002, 9311344461, 9311344462, 9311344463<br />
+              <strong>Email:</strong> bhupalsingh@devbhoomiwings.com<br />
+              <strong>Instagram:</strong> @devbhoomiwings
+            </p>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+}
