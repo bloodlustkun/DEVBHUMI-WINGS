@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown, User, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, User, Globe, LogOut } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -8,7 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
-import logo from 'figma:asset/60e125f48eba70acc7c4bd712a78ebd53a2c0c09.png';
+import { useAuth } from '../../context/AuthContext';
+import { WeatherWidget } from './WeatherWidget';
+import logo from '../../assets/devbhoomi.png'; // Uncomment when logo file is added
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -23,6 +25,11 @@ const navItems = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState('EN');
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -30,9 +37,12 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Devbhoomi Wings" className="h-10 w-auto" />
+            <img src={logo} alt="Devbhoomi Wings" className="h-8 w-auto" />
+            {/* <div className="h-8 w-8 bg-emerald-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-sm">DW</span>
+            </div> */}
             <div>
-              <div className="font-bold text-[#0f172a]">Devbhoomi Wings</div>
+              <div className="font-bold text-[#0f172a]">Devbhoomi</div>
               <div className="text-xs text-[#64748b]">Travel with trust</div>
             </div>
           </Link>
@@ -52,6 +62,9 @@ export function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
+            {/* Weather Widget */}
+            <WeatherWidget />
+
             {/* Language Toggle */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -76,17 +89,33 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   <User className="h-4 w-4" />
-                  <span className="hidden md:inline">Account</span>
+                  <span className="hidden md:inline">
+                    {user ? user.user_metadata?.full_name || 'Account' : 'Account'}
+                  </span>
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem asChild>
-                  <Link to="/login" className="cursor-pointer">Login</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/register" className="cursor-pointer">Register</Link>
-                </DropdownMenuItem>
+                {user ? (
+                  <>
+                    <DropdownMenuItem asChild>
+                      <Link to="/dashboard" className="cursor-pointer">Dashboard</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuItem asChild>
+                      <Link to="/login" className="cursor-pointer">Login</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/register" className="cursor-pointer">Register</Link>
+                    </DropdownMenuItem>
+                  </>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -120,6 +149,43 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
+              {user ? (
+                <>
+                  <Link
+                    to="/dashboard"
+                    className="text-sm text-[#0f172a] hover:text-[#14b8a6] transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleSignOut();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-sm text-[#0f172a] hover:text-[#14b8a6] transition-colors py-2 text-left"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="text-sm text-[#0f172a] hover:text-[#14b8a6] transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="text-sm text-[#0f172a] hover:text-[#14b8a6] transition-colors py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         )}

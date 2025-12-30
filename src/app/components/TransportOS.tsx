@@ -174,7 +174,14 @@ export function TransportOS() {
                         {cab.pricePerDay}
                       </div>
                       <Button className="w-full bg-[#f59e0b] hover:bg-[#f59e0b]/90">
-                        Reserve
+                        <a
+                          href={`https://wa.me/919311344461?text=Hi, I want to book a ${cab.type} cab`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full text-center"
+                        >
+                          Reserve
+                        </a>
                       </Button>
                     </div>
                   </div>

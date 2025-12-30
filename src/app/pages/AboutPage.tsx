@@ -37,9 +37,9 @@ export function AboutPage() {
               </div>
             </div>
             <p>
-              <strong>Office Address:</strong> Shop no. 208, Ganga complex<br />
-              <strong>Contact:</strong> 9690707002, 9311344461, 9311344462, 9311344463<br />
-              <strong>Email:</strong> bhupalsingh@devbhoomiwings.com<br />
+              <strong>Office Address:</strong> Shop no 8 ganga complex Vasundhra ghaziabad<br />
+              <strong>Contact:</strong> 9690707002, View Details: +91 9311344462, Cab Booking: +91 9311344461, Tech Support: +91 6395734224<br />
+              <strong>Email:</strong> Admin: info@devbhoomiwings.com, Support: bhupalsingh@devbhoomiwings.com<br />
               <strong>Instagram:</strong> @devbhoomiwings
             </p>
           </div>

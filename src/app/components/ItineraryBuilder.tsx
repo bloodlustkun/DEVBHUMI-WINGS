@@ -319,7 +319,17 @@ export function ItineraryBuilder() {
             </Button>
             <Button
               className="bg-[#14b8a6] hover:bg-[#14b8a6]/90"
-              onClick={() => setCurrentStep(Math.min(5, currentStep + 1))}
+              onClick={() => {
+                if (currentStep === 5) {
+                  // Open WhatsApp with booking details
+                  const message = encodeURIComponent(
+                    `Hi Devbhoomi Wings! I'm interested in booking a custom itinerary.\n\nTrip Details:\n- Budget: ₹${budget[0].toLocaleString()}\n- Duration: 7 days\n- Destinations: Pithoragarh area\n- Transport: AC Bus + Local Cab\n- Accommodation: Homestays\n\nPlease help me finalize this booking.`
+                  );
+                  window.open(`https://wa.me/919311344462?text=${message}`, '_blank');
+                } else {
+                  setCurrentStep(Math.min(5, currentStep + 1));
+                }
+              }}
             >
               {currentStep === 5 ? 'Complete Booking' : 'Continue'}
               <ChevronRight className="ml-2 h-4 w-4" />

@@ -8,8 +8,9 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 
 export function ContactPage() {
-  const whatsappNumbers = ['9311344462', '9311344461', '9311344463'];
-  const randomWhatsApp = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
+  const viewDetailsWhatsApp = '9311344462'; // +91 93113 44462
+  const cabBookingWhatsApp = '9311344461'; // +91 93113 44461
+  const techSupportPhone = '6395734224';
 
   return (
     <div className="min-h-screen bg-[#fafaf9]">
@@ -51,9 +52,9 @@ export function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Call Us</h3>
                     <p className="text-[#64748b]">9690707002</p>
-                    <p className="text-[#64748b]">9311344461</p>
-                    <p className="text-[#64748b]">9311344462</p>
-                    <p className="text-[#64748b]">9311344463</p>
+                    <p className="text-[#64748b]">View Details: +91 {viewDetailsWhatsApp}</p>
+                    <p className="text-[#64748b]">Cab Booking: +91 {cabBookingWhatsApp}</p>
+                    <p className="text-[#64748b]">Tech Support: +91 {techSupportPhone}</p>
                   </div>
                 </div>
               </Card>
@@ -63,7 +64,8 @@ export function ContactPage() {
                   <Mail className="w-6 h-6 text-[#14b8a6] mt-1" />
                   <div>
                     <h3 className="font-semibold mb-2">Email Us</h3>
-                    <p className="text-[#64748b]">bhupalsingh@devbhoomiwings.com</p>
+                    <p className="text-[#64748b]">Admin: info@devbhoomiwings.com</p>
+                    <p className="text-[#64748b]">Support: bhupalsingh@devbhoomiwings.com</p>
                   </div>
                 </div>
               </Card>
@@ -73,7 +75,7 @@ export function ContactPage() {
                   <MapPin className="w-6 h-6 text-[#14b8a6] mt-1" />
                   <div>
                     <h3 className="font-semibold mb-2">Visit Us</h3>
-                    <p className="text-[#64748b]">Shop no. 208, Ganga complex</p>
+                    <p className="text-[#64748b]">Shop no 8 ganga complex Vasundhra ghaziabad</p>
                   </div>
                 </div>
               </Card>

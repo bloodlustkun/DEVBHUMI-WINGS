@@ -2,6 +2,7 @@ import { Star, Calendar, Users, TrendingUp, MapPin } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface TripCardProps {
   title: string;
@@ -38,7 +39,7 @@ export function TripCard({
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 shadow-md">
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
-        <img 
+        <ImageWithFallback 
           src={image} 
           alt={title} 
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -106,9 +107,16 @@ export function TripCard({
         </div>
 
         {/* Action Button */}
-        <Button className="w-full bg-[#14b8a6] hover:bg-[#14b8a6]/90">
-          View Details
-        </Button>
+        <a
+          href={`https://wa.me/919311344462?text=Hi, I want to view details for ${title}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+        >
+          <Button className="w-full bg-[#14b8a6] hover:bg-[#14b8a6]/90">
+            View Details
+          </Button>
+        </a>
       </div>
     </Card>
   );

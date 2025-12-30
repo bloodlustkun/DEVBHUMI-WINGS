@@ -34,7 +34,7 @@ export function HeroSection() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Devbhoomi Wings
+              Devbhoomi
             </h1>
             
             <div className="text-2xl md:text-3xl text-[#14b8a6]">

@@ -150,7 +150,14 @@ export function StaysExperiences() {
                       <div className="font-bold text-[#0f172a]">{stay.price}</div>
                     </div>
                     <Button size="sm" className="bg-[#f59e0b] hover:bg-[#f59e0b]/90">
-                      Book
+                      <a
+                        href={`https://wa.me/919311344462?text=Hi, I want to book ${stay.title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-center"
+                      >
+                        Book
+                      </a>
                     </Button>
                   </div>
 

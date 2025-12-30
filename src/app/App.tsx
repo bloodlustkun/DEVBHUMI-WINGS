@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { HomePage } from './pages/HomePage';
 import { PackagesPage } from './pages/PackagesPage';
 import { DestinationsPage } from './pages/DestinationsPage';
@@ -14,8 +15,18 @@ import { TermsPage } from './pages/TermsPage';
 import { CookieConsent } from './components/CookieConsent';
 
 export default function App() {
+  const { loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+      </div>
+    );
+  }
+
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/packages" element={<PackagesPage />} />
@@ -31,6 +42,6 @@ export default function App() {
         <Route path="/terms" element={<TermsPage />} />
       </Routes>
       <CookieConsent />
-    </BrowserRouter>
+    </>
   );
 }

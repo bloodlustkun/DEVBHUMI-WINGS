@@ -97,9 +97,9 @@ export function TermsPage() {
               <h2 className="text-2xl font-semibold text-[#0f172a] mb-3">8. Contact Information</h2>
               <p>
                 For any questions regarding these terms:<br />
-                <strong>Email:</strong> bhupalsingh@devbhoomiwings.com<br />
-                <strong>Phone:</strong> 9690707002, 9311344461, 9311344462, 9311344463<br />
-                <strong>Address:</strong> Shop no. 208, Ganga complex
+                <strong>Email:</strong> Admin: info@devbhoomiwings.com, Support: bhupalsingh@devbhoomiwings.com<br />
+                <strong>Phone:</strong> 9690707002, View Details: +91 9311344462, Cab Booking: +91 9311344461, Tech Support: +91 6395734224<br />
+                <strong>Address:</strong> Shop no 8 ganga complex Vasundhra ghaziabad
               </p>
             </section>
           </div>

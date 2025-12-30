@@ -1,7 +1,6 @@
-import { MessageCircle, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { MessageCircle, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Mountain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
-import logo from 'figma:asset/60e125f48eba70acc7c4bd712a78ebd53a2c0c09.png';
 
 const footerLinks = {
   company: [
@@ -66,9 +65,9 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Devbhoomi Wings" className="h-10 w-auto" />
+              <Mountain className="h-10 w-10 text-white" />
               <div>
-                <div className="font-bold text-white">Devbhoomi Wings</div>
+                <div className="font-bold text-white">Devbhoomi</div>
                 <div className="text-xs text-slate-400">Travel OS for Uttarakhand</div>
               </div>
             </div>
@@ -83,7 +82,7 @@ export function Footer() {
               <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#14b8a6] transition-colors">
                 <Twitter className="h-4 w-4" />
               </a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#14b8a6] transition-colors">
+              <a href="https://www.instagram.com/devbhoomiwings" className="p-2 bg-white/5 rounded-full hover:bg-[#14b8a6] transition-colors">
                 <Instagram className="h-4 w-4" />
               </a>
               <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#14b8a6] transition-colors">
@@ -141,9 +140,14 @@ export function Footer() {
             </div>
             <div>
               <div className="text-xs text-slate-400 mb-1">Call Us</div>
-              <a href="tel:+919690707002" className="text-sm hover:text-[#14b8a6]">
-                +91 96907 07002
-              </a>
+              <div className="space-y-1">
+                <a href="tel:+919311344461" className="text-sm hover:text-[#14b8a6] block">
+                  +91 93113 44461
+                </a>
+                <a href="tel:+919311344462" className="text-sm hover:text-[#14b8a6] block">
+                  +91 93113 44462
+                </a>
+              </div>
             </div>
           </div>
 
@@ -153,8 +157,8 @@ export function Footer() {
             </div>
             <div>
               <div className="text-xs text-slate-400 mb-1">Email Us</div>
-              <a href="mailto:bhupalsingh@devbhoomiwings.com" className="text-sm hover:text-[#14b8a6] text-left">
-                bhupalsingh@devbhoomiwings.com
+              <a href="mailto:info@devbhoomiwings.com" className="text-sm hover:text-[#14b8a6] text-left">
+                info@devbhoomiwings.com
               </a>
             </div>
           </div>
@@ -165,9 +169,15 @@ export function Footer() {
             </div>
             <div>
               <div className="text-xs text-slate-400 mb-1">WhatsApp</div>
-              <Button size="sm" className="bg-[#25D366] hover:bg-[#25D366]/90 h-auto py-1 px-3">
-                Chat Now
-              </Button>
+              <div className="space-y-1">
+                <Button 
+                  size="sm" 
+                  className="bg-[#25D366] hover:bg-[#25D366]/90 h-auto py-1 px-3"
+                  onClick={() => window.open('https://wa.me/919311344462', '_blank')}
+                >
+                  Chat Now
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -180,11 +190,11 @@ export function Footer() {
             <div className="flex items-center gap-2 text-sm text-slate-400">
               <MapPin className="h-4 w-4 text-[#14b8a6]" />
               <span>
-                Shop no. 208, Ganga complex
+                Shop no 8, Ganga complex, Vasundhra, Ghaziabad
               </span>
             </div>
             <div className="text-sm text-slate-400 text-center">
-              © 2025 Devbhoomi Wings – Powered by{' '}
+              © 2025 Devbhoomi – Powered by{' '}
               <span className="text-[#14b8a6] font-semibold">Metasyndikate</span>
               {' '}| Travelmour Pvt. Ltd. ecosystem. All rights reserved.
             </div>
