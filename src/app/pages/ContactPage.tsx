@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
@@ -11,6 +12,33 @@ export function ContactPage() {
   const viewDetailsWhatsApp = '9311344462'; // +91 93113 44462
   const cabBookingWhatsApp = '9311344461'; // +91 93113 44461
   const techSupportPhone = '6395734224';
+  const randomWhatsApp = '9690707002';
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#fafaf9]">
@@ -23,24 +51,57 @@ export function ContactPage() {
             {/* Contact Form */}
             <Card className="p-8">
               <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
-              <form className="space-y-4">
+              {submitStatus === 'success' && (
+                <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-600 rounded-lg text-sm">
+                  Message sent successfully! We'll get back to you soon.
+                </div>
+              )}
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Label>Name</Label>
-                  <Input placeholder="Your Name" className="mt-2" />
+                  <Input 
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your Name" 
+                    className="mt-2" 
+                    required
+                  />
                 </div>
                 <div>
                   <Label>Email</Label>
-                  <Input type="email" placeholder="your@email.com" className="mt-2" />
+                  <Input 
+                    type="email" 
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="your@email.com" 
+                    className="mt-2" 
+                    required
+                  />
                 </div>
                 <div>
                   <Label>Phone</Label>
-                  <Input placeholder="+91 1234567890" className="mt-2" />
+                  <Input 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+91 1234567890" 
+                    className="mt-2" 
+                    required
+                  />
                 </div>
                 <div>
                   <Label>Message</Label>
-                  <Textarea placeholder="Tell us about your travel plans..." className="mt-2" rows={4} />
+                  <Textarea 
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us about your travel plans..." 
+                    className="mt-2" 
+                    rows={4} 
+                    required
+                  />
                 </div>
-                <Button className="w-full bg-[#14b8a6]">Send Message</Button>
+                <Button type="submit" disabled={isSubmitting} className="w-full bg-[#14b8a6]">
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
               </form>
             </Card>
 

@@ -16,6 +16,25 @@ export function LoginPage() {
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await signIn(formData.email, formData.password);
+      if (error) {
+        setError(error.message);
+      } else {
+        navigate('/');
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleGoogleSignIn = async () => {
     setError('');
     const { error } = await signInWithGoogle();

@@ -28,6 +28,39 @@ export function RegisterPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await signUp(formData.email, formData.password, formData.fullName);
+      if (error) {
+        setError(error.message);
+      } else {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleGoogleSignIn = async () => {
     setError('');
     const { error } = await signInWithGoogle();
