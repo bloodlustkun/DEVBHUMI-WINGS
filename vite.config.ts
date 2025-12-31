@@ -17,20 +17,6 @@ export default defineConfig({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          // Split vendor libraries into separate chunks
-          if (id.includes('node_modules')) {
-            if (id.includes('@radix-ui')) return 'radix-ui'
-            if (id.includes('@mui')) return 'mui'
-            if (id.includes('@emotion')) return 'mui'
-            if (id.includes('@supabase')) return 'supabase'
-            if (id.includes('react-router-dom')) return 'react-router'
-          }
-        },
-      },
-    },
     chunkSizeWarningLimit: 1000,
   },
 })
