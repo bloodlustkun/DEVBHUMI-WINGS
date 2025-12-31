@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { Bell, X } from 'lucide-react';
 
 const announcements = [
-  "🎉 Special Diwali Offer: 20% off on all packages!",
+  "🎉 Special New Year Offer Contact US now - 9690707002 ",
   "🏔️ New trekking routes added to Kedarnath and Badrinath",
   "🚗 Cab bookings now available 24/7",
   "⭐ 500+ happy travelers this season",
@@ -10,7 +10,7 @@ const announcements = [
   "🌟 Featured: Char Dham Yatra packages starting from ₹15,000"
 ];
 
-export function NewsTicker() {
+export const NewsTicker = memo(function NewsTicker() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -60,4 +60,4 @@ export function NewsTicker() {
       </div>
     </div>
   );
-}
+});

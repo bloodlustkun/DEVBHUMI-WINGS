@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { MapPin, Thermometer, Cloud, Sun, CloudRain, Loader2 } from 'lucide-react';
 
 interface WeatherData {
@@ -8,7 +8,7 @@ interface WeatherData {
   humidity: number;
 }
 
-export function WeatherWidget() {
+export const WeatherWidget = memo(function WeatherWidget() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -129,4 +129,4 @@ export function WeatherWidget() {
       </div>
     </div>
   );
-}
+});
