@@ -124,8 +124,14 @@ export function TransportOS() {
                         <div className="text-xs text-slate-500">from</div>
                         <div className="font-bold text-lg text-[#0f172a]">{route.price}</div>
                       </div>
-                      <Button className="bg-[#14b8a6] hover:bg-[#14b8a6]/90">
-                        Book
+                      <Button className="bg-[#14b8a6] hover:bg-[#14b8a6]/90" asChild>
+                        <a
+                          href={`https://wa.me/919311344461?text=Hi, I want to book a bus from ${route.from} to ${route.to}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book
+                        </a>
                       </Button>
                     </div>
                   </div>
@@ -173,14 +179,13 @@ export function TransportOS() {
                       <div className="font-bold text-xl text-[#0f172a] mb-3">
                         {cab.pricePerDay}
                       </div>
-                      <Button className="w-full bg-[#f59e0b] hover:bg-[#f59e0b]/90">
+                      <Button className="w-full bg-[#f59e0b] hover:bg-[#f59e0b]/90" asChild>
                         <a
                           href={`https://wa.me/919311344461?text=Hi, I want to book a ${cab.type} cab`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full text-center"
                         >
-                          Reserve
+                          Book
                         </a>
                       </Button>
                     </div>
@@ -223,8 +228,14 @@ export function TransportOS() {
                 <div className="text-center">
                   <div className="text-4xl font-bold mb-2">₹1,25,000</div>
                   <div className="text-sm text-slate-400 mb-6">Starting price per trip</div>
-                  <Button size="lg" className="bg-[#14b8a6] hover:bg-[#14b8a6]/90">
-                    Enquire Now
+                  <Button size="lg" className="bg-[#14b8a6] hover:bg-[#14b8a6]/90" asChild>
+                    <a
+                      href="https://wa.me/919311344461?text=Hi, I want to enquire about helicopter charter services"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Enquire Now
+                    </a>
                   </Button>
                 </div>
               </div>
