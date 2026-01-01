@@ -37,10 +37,11 @@ export function AboutPage() {
               </div>
             </div>
             <p>
-              <strong>Office Address:</strong> Shop no 8 ganga complex Vasundhra ghaziabad<br />
+              <strong>Office Address:</strong> 16b/S-208, Ganga Complex, UGF, Sec-16, Vasundhara, Ghaziabad<br />
               <strong>Contact:</strong> 9690707002, View Details: +91 9311344462, Cab Booking: +91 9311344461, Tech Support: +91 6395734224<br />
               <strong>Email:</strong> Admin: info@devbhoomiwings.com, Support: bhupalsingh@devbhoomiwings.com<br />
-              <strong>Instagram:</strong> @devbhoomiwings
+              <strong>Instagram:</strong> @devbhoomiwings<br />
+              <strong>CIN:</strong> U79110UT2025PTC020432
             </p>
           </div>
         </div>

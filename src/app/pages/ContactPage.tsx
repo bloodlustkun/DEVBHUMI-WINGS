@@ -7,6 +7,7 @@ import { Card } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
+import { supabase } from '../../lib/supabase';
 
 export function ContactPage() {
   const viewDetailsWhatsApp = '9311344462'; // +91 93113 44462
@@ -23,18 +24,75 @@ export function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const sendEmailNotification = async (formData: { name: string; email: string; phone: string; message: string }) => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'bhupalsingh@devbhoomiwings.com',
+          subject: `New Contact Form Submission from ${formData.name}`,
+          message: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Phone:</strong> ${formData.phone}</p>
+            <p><strong>Message:</strong> ${formData.message}</p>
+          `,
+          replyTo: formData.email,
+        }),
+      });
+      return response.ok;
+    } catch (error) {
+      console.error('Email notification error:', error);
+      return false;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+      return;
+    }
+
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Insert message into Supabase
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            created_at: new Date().toISOString(),
+          }
+        ])
+        .select();
+
+      if (error) throw error;
+
+      // Send email notification (auto-send)
+      await sendEmailNotification(formData);
+
+      // Show success message
       setSubmitStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      
+      // Auto-clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
+      console.error('Submission error:', error);
       setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -136,12 +194,12 @@ export function ContactPage() {
                   <MapPin className="w-6 h-6 text-[#14b8a6] mt-1" />
                   <div>
                     <h3 className="font-semibold mb-2">Visit Us</h3>
-                    <p className="text-[#64748b]">Shop no 8 ganga complex Vasundhra ghaziabad</p>
+                    <p className="text-[#64748b]">16b/S-208, Ganga Complex, UGF, Sec-16, Vasundhara, Ghaziabad<br />CIN: U79110UT2025PTC020432</p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-6 bg-gradient-to-r from-[#14b8a6] to-[#0d9488]">
+              <Card className="p-6 bg-linear-to-r from-[#14b8a6] to-[#0d9488]">
                 <div className="flex items-start gap-4">
                   <MessageCircle className="w-6 h-6 text-white mt-1" />
                   <div>

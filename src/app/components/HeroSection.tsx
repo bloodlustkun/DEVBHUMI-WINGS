@@ -12,6 +12,7 @@ const progressSteps = [
   { label: 'Return', active: false },
 ];
 
+
 export function HeroSection() {
   return (
     <section className="relative bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] overflow-hidden">
@@ -29,18 +30,15 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Hero Content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#14b8a6]/20 border border-[#14b8a6]/30 text-[#14b8a6] text-sm mb-4 font-[Abhaya_Libre]">
-              Traveling and comforting travelers since 2018
+            <div className="flex items-start mb-6">
+              <img src="/devbhoomi.png" alt="Devbhoomi Wings Logo" className="h-32 md:h-40" style={{filter: 'drop-shadow(0 2px 8px #14b8a6)'}} />
             </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Devbhoomi
             </h1>
-            
             <div className="text-2xl md:text-3xl text-[#14b8a6]">
               Traveling with comfort all over India
             </div>
-            
             <p className="text-lg text-slate-300 max-w-2xl">
               End-to-end journeys through the Himalayas. Planning, transport, stays, 
               guides, and payments — all in one platform. From NCR to the sacred peaks 

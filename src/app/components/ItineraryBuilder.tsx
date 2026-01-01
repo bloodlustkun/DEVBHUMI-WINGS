@@ -325,7 +325,7 @@ export function ItineraryBuilder() {
                   const message = encodeURIComponent(
                     `Hi Devbhoomi Wings! I'm interested in booking a custom itinerary.\n\nTrip Details:\n- Budget: ₹${budget[0].toLocaleString()}\n- Duration: 7 days\n- Destinations: Pithoragarh area\n- Transport: AC Bus + Local Cab\n- Accommodation: Homestays\n\nPlease help me finalize this booking.`
                   );
-                  window.open(`https://wa.me/919311344462?text=${message}`, '_blank');
+                  window.open(`https://wa.me/919311344463?text=${message}`, '_blank');
                 } else {
                   setCurrentStep(Math.min(5, currentStep + 1));
                 }

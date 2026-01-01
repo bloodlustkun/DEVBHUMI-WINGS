@@ -19,7 +19,7 @@ export function SEO({
 }: SEOProps) {
   useEffect(() => {
     // Update document title
-    document.title = `${title} - Devbhoomi Wings`;
+    document.title = `Devbhoomi Wings - Travel with Trust`;
     
     // Update or create meta tags
     const updateMeta = (name: string, content: string) => {

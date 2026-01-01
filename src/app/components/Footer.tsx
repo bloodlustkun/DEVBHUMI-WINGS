@@ -147,6 +147,9 @@ export function Footer() {
                 <a href="tel:+919311344462" className="text-sm hover:text-[#14b8a6] block">
                   +91 93113 44462
                 </a>
+                <a href="tel:+919311344463" className="text-sm hover:text-[#14b8a6] block">
+                  +91 93113 44463 (Director)
+                </a>
               </div>
             </div>
           </div>
@@ -173,7 +176,7 @@ export function Footer() {
                 <Button 
                   size="sm" 
                   className="bg-[#25D366] hover:bg-[#25D366]/90 h-auto py-1 px-3"
-                  onClick={() => window.open('https://wa.me/919311344462', '_blank')}
+                  onClick={() => window.open('https://wa.me/919311344463', '_blank')}
                 >
                   Chat Now
                 </Button>

@@ -17,6 +17,7 @@ const navItems = [
   { label: 'Packages', path: '/packages' },
   { label: 'Destinations', path: '/destinations' },
   { label: 'Transport', path: '/transport' },
+  { label: 'Book Cabs', path: '/book-cabs' },
   { label: 'Stays', path: '/stays' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
